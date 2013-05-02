@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Title</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css"/>
+	<script src=""></script>
+</head>
+<body>
+	
+	<div id="calendar">
+		<div class="calendar-title">
+			<a href="" id="prevY"></a>
+			<a href="" id="prevM"></a>
+			<span>2013</span>年<span>4</span>月
+			<a href="" id="nextM"></a>
+			<a href="" id="nextY"></a>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var c=document.getElementById('calendar'),
+			s=[];
+			calendar();
+			function calendar(){
+				s.push("<table cellpadding='0' cellspacing='0'>");
+				s.push("<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th style='border-right:solid 1px #ccc'>六</th></tr>")
+				for(var i=0;i<6;i++){
+					s.push("<tr>");
+					for(var j=0;j<7;j++){
+						s.push("<td></td>");
+					}
+					s.push("</tr>");
+				}
+				s.push("</table>");
+
+				c.innerHTML+=s.join('');
+			}
+		}
+
+	</script>
+	
+</body>
+</html>

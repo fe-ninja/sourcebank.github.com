@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Title</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css"/>
+	<script src=""></script>
+</head>
+<body>
+	
+	<div id="calendar">
+		
+	</div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var c=byId('calendar'),
+			
+			date=new Date(),
+			year=y=date.getFullYear(),
+			month=m=date.getMonth()+1;
+
+			calendar(year,month);
+
+			function calendar(){
+
+				if(month<1){
+					year--;month=12;
+				}
+				else if(month>12){
+					year++;month=1;
+				}
+				
+				var firstDay=new Date(year,month-1,1).getDay(),
+				numberDay=new Date(year,month,0).getDate(),
+				s=[];
+				
+				s.push('<div class="calendar-title"> <a href="javascript:;" id="prevY"></a> <a href="javascript:;" id="prevM"></a> <span id="year">'+year+'</span>年<span>'+month+'</span>月 <a href="javascript:;" id="nextM"></a> <a href="javascript:;" id="nextY"></a> </div>');
+
+				s.push("<table cellpadding='0' cellspacing='0'>");
+				s.push("<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th style='border-right:solid 1px #ccc'>六</th></tr>")
+
+				var d=1;
+				for(var i=0;i<6;i++){
+					s.push("<tr>");
+					for(var j=0;j<7;j++){
+
+						if((i==0&&j<firstDay)||d>numberDay){
+							s.push("<td></td>");
+						}
+						else{
+							if(year==y&&month==m&&d==date.getDate()){
+
+								s.push("<td class='today'>"+d+"</td>");
+							}
+							else{
+								s.push("<td>"+d+"</td>")
+							}
+							d++;							
+						}
+					}
+					s.push("</tr>");
+				}
+				s.push("</table>");
+				c.innerHTML=s.join('');
+
+
+			var prevY=byId("prevY"),
+				prevM=byId("prevM"),
+				nextM=byId("nextM"),
+				nextY=byId("nextY");
+
+				prevY.onclick=function(){calendar(year--,month);};
+				prevM.onclick=function(){calendar(year,month--);};
+				nextM.onclick=function(){calendar(year,month++);};
+				nextY.onclick=function(){calendar(year++,month);};
+			}
+
+
+			
+
+			function byId(id){
+				return document.getElementById(id);
+			}
+		}
+
+	</script>
+	
+</body>
+</html>
