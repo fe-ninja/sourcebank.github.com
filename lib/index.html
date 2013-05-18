@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Title</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href=""/>
+	<script src="gui.js"></script>
+</head>
+<body>
+	
+	<p class="one ">one</p>
+	<span class="two one y">two</span>
+	<p class="one-one">three</p>
+	<div class="three one" id="k">
+		four 
+		<span class="two one k" >ha ha</span>
+	</div>
+
+	<input type="button" name="" class="btn" value="show" >
+
+	<script type="text/javascript" >
+
+		var btn=gui.byClass("btn")[0];
+		gui.addEvent(btn,'click',say);
+
+		function say(){
+			alert("hello");
+			gui.removeEvent(this,'click',say);
+		}
+
+	</script>
+
+	
+</body>
+</html>
