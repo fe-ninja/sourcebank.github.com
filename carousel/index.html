@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Slide</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href=""/>
+	<style type="text/css">
+		html,body,ol,ul,li{
+			margin:0;
+			padding:0;
+		}
+		img{
+			width:400px;
+
+		}
+		.slide{
+			border:solid 1px purple;
+			position: relative;
+			font-size: 0;
+
+			width:400px;
+			height:250px;
+			/*height:250px;*/
+			margin:0 auto;
+
+			overflow:hidden;
+		}
+		.slide-inner{
+			overflow: hidden;
+			/*border:solid 1px red;*/
+			
+			/*display: inline-block;*/
+			width:1600px;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		.slide-inner .item{
+			/*float:left;*/
+			/*border:solid 1px blue;*/
+
+			font-size:0;
+		}
+		.slide-nav{
+			/*border:solid 1px red;*/
+			position:absolute;
+			bottom:5px;
+			right:20px;
+			
+			overflow: hidden;
+		}
+		.slide-nav li{
+			border:solid 1px purple;
+			width:10px;
+			height:10px;
+			background-color:white;
+			opacity:0.8;
+			float:left;
+			margin-right:2px;
+			cursor:pointer;			
+		}
+		.slide-nav .active{
+			background-color:purple;
+		}
+	</style>
+
+</head>
+<body>
+	
+
+	<div class="slide">
+
+		<div class="slide-inner" id="slide-inner">
+			<div class="item"><img src="img/a.jpg"></div>
+			<div class="item"><img src="img/b.jpg"></div>
+			<div class="item"><img src="img/c.jpg"></div>
+			<div class="item"><img src="img/d.jpg"></div>
+		</div>
+
+		<ol class="slide-nav">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+
+		<a href="" class="slide-control left"></a>
+		<a href="" class="slide-control right"></a>
+	</div>
+
+	<button id="btn">button</button>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
