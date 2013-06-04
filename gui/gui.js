@@ -44,6 +44,21 @@ var GUI=(function(window){
 	function getScroll(ele){
 		
 	}
+/*
+	//border-top-right-radius  --->borderTopRightRadius
+	function pro(name){
+		return name.replace(/-[a-z]/g,function($1){
+			// var i=$1;
+			return $1.slice(1).toUpperCase();
+		});
+	}
+
+	function fpro(name){
+		return name.replace(/A-Z/g,function($1){
+			return "-"+$1.toLowerCase();
+		});
+	}*/
+
 
 	function extend(src,des){
 		for(var i in des){
