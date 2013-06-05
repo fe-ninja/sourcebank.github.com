@@ -67,6 +67,7 @@ var GUI=(function(window){
 	}
 
 	function each(arr,fn){
+		
 		for(var i=0,len=arr.length;i<len;i++){
 			fn.call(arr[i],i,arr[i])
 		}
@@ -170,14 +171,12 @@ var GUI=(function(window){
 	function Slide(id,num,opt){
 
 		this.ele=byId(id);
-		// if(!this.ele) return;
+		if(!this.ele) return;
 		this.option={
 			time:20,
 			direction:"left"
 		}
 		extend(this.option,opt);
-		// console.dir(this.option)
-
 		
 		if(this.option.direction==="left"){
 			this.step=this.ele.offsetWidth/num;
@@ -205,7 +204,6 @@ var GUI=(function(window){
 			if(i>=0) this.index=i;
 			this.active(this.index);
 
-			// this.begin=this.ele.offsetLeft;
 			if(this.option.direction==="left"){
 				this.begin=this.ele.offsetLeft;
 			}else{
@@ -215,7 +213,6 @@ var GUI=(function(window){
 			this.target=-this.index*this.step;
 			this.change=this.target-this.begin;
 			
-			// console.log(this.begin+":"+this.target)
 			if(this.change==0) return;			
 			this.move();
 		},
@@ -226,8 +223,7 @@ var GUI=(function(window){
 			(_this.timer)&&clearInterval(_this.timer);
 			_this.timer=setInterval(function(){
 
-				if(t<_this.option.time){
-					// console.log(_this.option.direction)					
+				if(t<_this.option.time){			
 					_this.ele.style[_this.option.direction]=Tween.Quad.easeout(_this.begin,_this.change,t,_this.option.time)+"px";
 					t++;
 				}
@@ -240,12 +236,12 @@ var GUI=(function(window){
 		},
 
 		prev:function(){
-			if(--this.index<0) this.index=0;//this.index=this.num-1;
+			if(--this.index<0) this.index=0;
 			this.init();
 		},
 
 		next:function(){
-			if(++this.index>=this.num) this.index=0;//this.index=this.num-1;//
+			if(++this.index>=this.num) this.index=0;
 			this.init();
 		},
 		play:function(){
@@ -263,7 +259,7 @@ var GUI=(function(window){
 			var _this=this;
 			each(this.aNav,function(i){
 				this.onmouseover=function(){
-					clearInterval(_this.auto);
+					_this.stop();
 					_this.init(i);
 				}
 				this.onmouseout=function(){
