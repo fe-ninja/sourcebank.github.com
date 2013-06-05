@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSS Hack</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<style type="text/css">
+		body{
+			background-color:#E8E8E8;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- <div class="hack">
+			<div class="title"><h2></h2></div>
+			<div class="show">
+				<div class="before">
+					
+				</div>
+				<div class="after">
+					
+				</div>
+			</div>
+			<div class="solution">
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+		</div> -->
+		<div class="hack">
+			<div class="title"><h2>CSS Hack</h2></div>
+			<div class="show">
+				<div class="">
+					<div class="view">
+						<span class="browser ie6">IE 6</span>
+						<span class="browser ie7">IE 7</span>
+						<span class="browser ie8">IE 8</span>
+						<span class="browser ie9">IE 9</span>
+						<span class="browser ff">Firefox</span>
+						<span class="browser webkit">Chrome</span>
+						<span class="browser webkit">Safari</span>
+						<span class="browser opera">Opera</span>
+						<p style="position:absolute;bottom:0;left:15px;color:#F4A951;">根据当前浏览器激活相应的块</p>
+					</div>
+					<div class="content description">
+						<p>CSS Hack常见的有三种方式，一种是通过条件注释，一种是hack选择器，还有一种是hack样式属性</p>
+						<p><span>IE6 :</span> *html .ie6 {xx:yyy;}</p>
+						<p><span>IE7 :</span> *+html .ie7{xx:yyy;}</p>
+						<p><span>IE8/ie9/opera :</span> \0</p>
+						<p><span>IE9 :</span> :root .ie9{xx:#yyy\9;}</p>
+						<p><span>Firefox:</span> @-moz-document url-prefix(){ .ff{xx:yyy;}}</p>
+						<p><span>Chrome/Safari:</span> @media screen and (-webkit-min-device-pixel-ratio:0){.webkit{xx:yyy;}}</p>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="hack">
+			<div class="title"><h2>IE6 双边距/3px间距</h2></div>
+			<div class="show">
+				<div class="show-item before">
+					<div class="view">
+						<h3>Before</h3>
+						<img src="img/float-before.png">
+						<img src="img/3px-before.png">
+
+					</div>
+					<div class="content description">
+						<h3>问题描述：</h3>
+						<p>1、在IE6下，当给浮动的元素设置margin后，margin会变为原来的两倍</p>
+						<p>2、在IE6下，浮动元素后紧跟的非浮动元素，两者之间会有3像素的间距</p>
+					</div>
+				</div>
+				<div class="show-item after">
+					<div class="view">
+						<h3>after</h3>
+						<img src="img/float-after.png">
+						<img src="img/3px-after.png">
+					</div>
+					<div class="content solution">
+						<h3>解决方案:</h3>
+						<p>为浮动的元素设置display:inline属性</p>
+						<p>可以为前面浮动元素设置margin-right:-3px / 如果后一个元素是浮动的话则没有间距</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hack">
+			<div class="title"><h2>position:fixed</h2></div>
+			<div class="show">
+				<div class="content description">
+					<p>position:fixed是一个比较好的CSS特性，现在用这个特性比较多的就是长页面的返回顶部按钮，另一种情况是固定于窗口的导航栏。但很遗憾，IE6又不支持。</p>
+				</div>
+				<div class="content solution">
+					<p>解决方法是使用CSS中的表达式，在滚动时进行定位。详情点 <a href="http://www.cnblogs.com/sourcebank/archive/2013/04/09/3009879.html">这里</a> </p>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="hack">
+			<div class="title"><h2>Select刺穿浮动框</h2></div>
+			<div class="show">
+				<div class="show-item before">
+					<div class="view">
+						<img src="img/iframe-before.png">
+					</div>
+					<div class="content description">
+						<p>当页面中存在select表单项，此时若有弹出框或其他元素在select上时，select将刺穿该元素(绝对定位中也是如此)</p>
+					</div>
+				</div>
+				<div class="show-item after">
+					<div class="view">
+						<img src="img/iframe-after.png">
+					</div>
+					<div class="content solution">
+						<p>select无法刺穿iframe元素，所以可以用一个iframe铺底</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="more">更多内容敬请期待 :-)</div>
+
+	</div>
+</body>
+</html>
