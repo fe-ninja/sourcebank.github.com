@@ -177,7 +177,8 @@ var GUI=(function(window){
 			direction:"left"
 		}
 		extend(this.option,opt);
-		
+		console.dir(this.option);
+
 		if(this.option.direction==="left"){
 			this.step=this.ele.offsetWidth/num;
 		}else{
@@ -229,7 +230,7 @@ var GUI=(function(window){
 				}
 				else{
 					clearInterval(_this.timer);
-					_this.ele.style.left=_this.target;
+					_this.ele.style[_this.option.direction]=_this.target;
 				}
 			},30)
 
