@@ -177,7 +177,7 @@ var GUI=(function(window){
 			direction:"left"
 		}
 		extend(this.option,opt);
-		console.dir(this.option);
+		
 
 		if(this.option.direction==="left"){
 			this.step=this.ele.offsetWidth/num;
